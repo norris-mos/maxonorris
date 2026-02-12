@@ -29,6 +29,17 @@ const Research = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Re-trigger reveal animation when filter changes
+  useEffect(() => {
+    const elements = sectionRef.current?.querySelectorAll('.reveal-item');
+    elements?.forEach((el, index) => {
+      el.classList.remove('revealed');
+      setTimeout(() => {
+        el.classList.add('revealed');
+      }, index * 80);
+    });
+  }, [activeFilter]);
+
   const filters = [
     { id: 'all', label: 'Everything' },
     { id: 'publication', label: 'Publications' },
@@ -62,7 +73,7 @@ const Research = () => {
       type: 'project',
       title: 'Broonie — Privacy-First GenAI for Schools',
       venue: 'Production System',
-      date: '2024–Present',
+      date: '2024–2026',
       excerpt: 'Built GDPR-compliant AI platform with on-premise GPU cluster. Led LoRA fine-tuning pipeline achieving 40% lower perplexity on KS3 maths. Deployed in 3 pilot schools.',
       link: '#',
       tags: ['EdTech', 'Privacy', 'Deployment'],

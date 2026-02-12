@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import headshot from '@/assets/headshot.jpg';
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -120,10 +121,27 @@ const About = () => {
                   <span className="tag-editorial">English — Native</span>
                 </div>
               </div>
+
+              {/* Quote */}
+              <blockquote className="reveal-item section-reveal pull-quote mt-12">
+                "The most important questions in AI aren't technical—they're
+                about who holds power and how decisions get made."
+              </blockquote>
             </div>
 
             {/* Right Column - Experience */}
             <div className="lg:col-span-5">
+              {/* Profile Photo */}
+              <div className="reveal-item section-reveal mb-12">
+                <div className="w-48 h-48 mx-auto lg:mx-0 overflow-hidden rounded-lg border border-charcoal/10 shadow-sm">
+                  <img
+                    src={headshot}
+                    alt="Max Norris"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
               <h3 className="reveal-item section-reveal font-serif text-heading-sm text-charcoal mb-8">
                 Where I've worked
               </h3>
@@ -149,12 +167,6 @@ const About = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Quote */}
-              <blockquote className="reveal-item section-reveal pull-quote mt-12">
-                "The most important questions in AI aren't technical—they're 
-                about who holds power and how decisions get made."
-              </blockquote>
             </div>
           </div>
         </div>
