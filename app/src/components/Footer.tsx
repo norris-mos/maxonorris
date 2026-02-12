@@ -1,13 +1,22 @@
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { Twitter, Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === '/';
 
   const scrollToSection = (href: string) => {
     if (href.startsWith('#')) {
-      const element = document.getElementById(href.slice(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (isHomePage) {
+        const element = document.getElementById(href.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate('/' + href);
       }
     }
   };
@@ -25,12 +34,12 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             {/* Logo & Tagline */}
             <div>
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="font-serif text-xl text-cream hover:text-terracotta transition-colors duration-300 mb-2"
+              <Link
+                to="/"
+                className="inline-block font-serif text-xl text-cream hover:text-terracotta transition-colors duration-300 mb-2"
               >
                 Max Norris
-              </button>
+              </Link>
               <p className="text-body-sm text-cream/50">
                 PhD Researcher · AI Governance · Geopolitical Analysis
               </p>

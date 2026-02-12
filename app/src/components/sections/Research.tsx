@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, FileText } from 'lucide-react';
+import { researchItems } from '../../data/research';
 
 const Research = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -45,69 +47,6 @@ const Research = () => {
     { id: 'publication', label: 'Publications' },
     { id: 'project', label: 'Projects' },
     { id: 'policy', label: 'Policy Work' },
-  ];
-
-  const researchItems = [
-    {
-      id: 1,
-      type: 'publication',
-      title: 'Next Token Knowledge Tracing',
-      venue: 'arXiv Preprint',
-      date: '2024',
-      excerpt: 'A novel student modelling framework using LoRA fine-tuning for personalised knowledge tracing. Trained on 15M+ student interactions, achieving state-of-the-art performance across benchmarks.',
-      link: 'https://arxiv.org/abs/2511.02599',
-      tags: ['AI', 'Education', 'Personalisation'],
-    },
-    {
-      id: 2,
-      type: 'policy',
-      title: 'Advising Dutch Ministry of Economic Affairs on AI Strategy',
-      venue: 'Policy Advisory',
-      date: '2024',
-      excerpt: 'Advised on strategic funding priorities for national moonshot AI programmes, including evaluation of governance risks and high-impact research directions for safe AI deployment.',
-      link: '#',
-      tags: ['AI Governance', 'Policy', 'Europe'],
-    },
-    {
-      id: 3,
-      type: 'project',
-      title: 'Broonie — Privacy-First GenAI for Schools',
-      venue: 'Production System',
-      date: '2024–2026',
-      excerpt: 'Built GDPR-compliant AI platform with on-premise GPU cluster. Led LoRA fine-tuning pipeline achieving 40% lower perplexity on KS3 maths. Deployed in 3 pilot schools.',
-      link: '#',
-      tags: ['EdTech', 'Privacy', 'Deployment'],
-    },
-    {
-      id: 4,
-      type: 'publication',
-      title: 'Curriculum Planning with Neurally Guided MCTS',
-      venue: 'Research in Progress',
-      date: '2024',
-      excerpt: 'Investigating model-based planning algorithms for intelligent curriculum design and adaptive teaching strategies using Monte Carlo Tree Search guided by neural networks.',
-      link: '#',
-      tags: ['Planning', 'RL', 'Education'],
-    },
-    {
-      id: 5,
-      type: 'project',
-      title: 'PIXEL LLM — Tokenizer-Free Language Models',
-      venue: 'Collaboration with CDT NLP',
-      date: '2023',
-      excerpt: 'Developed extensions to pre-processing pipeline for pixel-based language models. Improved GLUE benchmark performance by 10 percentage points through novel tokenization-free approach.',
-      link: '#',
-      tags: ['NLP', 'Computer Vision', 'Models'],
-    },
-    {
-      id: 6,
-      type: 'project',
-      title: 'Contenti — Bloom\'s Taxonomy Content Generator',
-      venue: 'MSc Thesis',
-      date: '2023',
-      excerpt: 'Platform for teachers to generate educational content aligned with Bloom\'s Taxonomy levels. Used participatory design with educators to iteratively refine the system.',
-      link: 'https://github.com/norris-mos/contenti-mono',
-      tags: ['EdTech', 'LLMs', 'Design'],
-    },
   ];
 
   const filteredItems = activeFilter === 'all' 
@@ -191,13 +130,13 @@ const Research = () => {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={item.link}
+                  <Link
+                    to={`/research/${item.slug}`}
                     className="flex items-center gap-1 text-sm text-charcoal hover:text-terracotta transition-colors duration-300"
                   >
                     <span>View</span>
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

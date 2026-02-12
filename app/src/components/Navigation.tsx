@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useLocation, Link } from 'react-router-dom';
+import { Menu, X, ArrowLeft } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isDetailPage = location.pathname.startsWith('/research/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,35 +43,48 @@ const Navigation = () => {
       >
         <div className="w-full px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <Link
+            to="/"
             className="group"
           >
             <span className="font-serif text-xl font-medium tracking-tight text-charcoal group-hover:text-terracotta transition-colors duration-300">
               Max Norris
             </span>
-          </button>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
+          {/* Detail Page Back Button (Desktop) */}
+          {isDetailPage ? (
+            <Link
+              to="/#research"
+              className="hidden md:flex items-center gap-2 text-sm text-charcoal-light hover:text-terracotta transition-colors duration-300"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to research</span>
+            </Link>
+          ) : (
+            <>
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-10">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    className="nav-link"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* CTA Button */}
               <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="nav-link"
+                onClick={() => scrollToSection('contact')}
+                className="hidden md:block btn-editorial text-xs"
               >
-                {link.label}
+                Get in touch
               </button>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="hidden md:block btn-editorial text-xs"
-          >
-            Get in touch
-          </button>
+            </>
+          )}
 
           {/* Mobile Menu Button */}
           <button
@@ -91,21 +108,34 @@ const Navigation = () => {
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => scrollToSection(link.id)}
-              className="font-serif text-2xl text-charcoal hover:text-terracotta transition-colors duration-300"
+          {isDetailPage ? (
+            <Link
+              to="/#research"
+              className="flex items-center gap-2 text-xl text-charcoal hover:text-terracotta transition-colors duration-300"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              {link.label}
-            </button>
-          ))}
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="mt-8 btn-editorial"
-          >
-            Get in touch
-          </button>
+              <ArrowLeft className="w-5 h-5" />
+              <span>Back to research</span>
+            </Link>
+          ) : (
+            <>
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="font-serif text-2xl text-charcoal hover:text-terracotta transition-colors duration-300"
+                >
+                  {link.label}
+                </button>
+              ))}
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="mt-8 btn-editorial"
+              >
+                Get in touch
+              </button>
+            </>
+          )}
         </div>
       </div>
     </>
