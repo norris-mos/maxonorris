@@ -23,6 +23,7 @@ function ResearchDetailPage() {
     publication: 'Publication',
     project: 'Project',
     policy: 'Policy Work',
+    fun: 'Fun',
   };
 
   return (

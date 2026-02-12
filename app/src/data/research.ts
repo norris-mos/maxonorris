@@ -1,7 +1,7 @@
 export interface ResearchItem {
   id: number;
   slug: string;
-  type: 'publication' | 'project' | 'policy';
+  type: 'publication' | 'project' | 'policy' | 'fun';
   title: string;
   subtitle: string;
   venue: string;
@@ -229,6 +229,51 @@ export const researchItems: ResearchItem[] = [
         {
           label: 'View Repository on GitHub',
           url: 'https://github.com/norris-mos/contenti-mono'
+        }
+      ]
+    }
+  },
+  {
+    id: 7,
+    slug: 'low-stim-animation',
+    type: 'fun',
+    title: 'Low Stim Animation with Stable Diffusion',
+    subtitle: 'Reimagining classic children\'s animations using modern generative AI and video models',
+    venue: 'Personal Project',
+    date: '2024–Present',
+    excerpt: 'Experimenting with Stable Diffusion and video models like Wan2.2 to create low-stimulation animations inspired by old-school children\'s shows. Built with ComfyUI, ControlNet, and custom LoRAs.',
+    link: '#',
+    tags: ['Generative AI', 'Animation', 'ComfyUI'],
+    fullContent: {
+      overview: 'This project explores the intersection of nostalgia and cutting-edge AI by using Stable Diffusion and modern video models to recreate the gentle, low-stimulation aesthetic of classic children\'s animations. Through ComfyUI workflows and advanced conditioning techniques, I\'m developing a pipeline for generating animation content that captures the charm of old-school shows while leveraging state-of-the-art generative models.',
+      sections: [
+        {
+          heading: 'The Vision',
+          content: 'Modern children\'s content is often hyper-stimulating—rapid cuts, bright colors, constant movement. This project is an attempt to revive the calmer aesthetic of older children\'s shows: gentle pacing, soft colors, simple character designs. But instead of traditional animation techniques, I\'m using generative AI to create new content in this style. The goal is to see if modern video generation models can capture the warmth and simplicity that made those old shows so appealing.'
+        },
+        {
+          heading: 'Technical Stack: ComfyUI Workflows',
+          content: 'The core of this project is built in ComfyUI, a node-based interface for Stable Diffusion workflows. Unlike simple prompt-to-image tools, ComfyUI lets you build complex generation pipelines with fine-grained control over every step. My workflow chains together multiple models: base Stable Diffusion for image generation, ControlNet for spatial guidance, custom LoRAs for style consistency, and video models like Wan2.2 for temporal coherence across frames. ComfyUI\'s modularity makes it perfect for experimentation—I can swap out models, adjust conditioning weights, and iterate on the pipeline without touching code.'
+        },
+        {
+          heading: 'ControlNet for Spatial Consistency',
+          content: 'ControlNet is crucial for maintaining consistent compositions across generated frames. I use it to guide the model with edge maps, depth maps, or pose skeletons extracted from reference animations. This ensures characters stay in the same positions, backgrounds remain stable, and camera movements are smooth. For example, if I want a character to walk across a scene, I can provide a sequence of pose skeletons as conditioning, and ControlNet ensures the generated frames follow that movement while maintaining the overall aesthetic. Different ControlNet models handle different types of conditioning—I typically use a combination of line art detection and depth estimation depending on the scene.'
+        },
+        {
+          heading: 'Custom LoRAs for Style Consistency',
+          content: 'Low-Rank Adaptation (LoRA) lets me fine-tune Stable Diffusion on specific visual styles without retraining the entire model. I\'ve trained several LoRAs on old children\'s animation frames—shows with that characteristic soft, watercolor-like aesthetic and simple character designs. These LoRAs bias the model toward generating content that matches that style. The beauty of LoRAs is that they\'re small (a few hundred MB) and can be mixed together—I can combine a "soft colors" LoRA with a "1980s animation" LoRA to get exactly the aesthetic I want. Training them requires curating datasets of reference frames and fine-tuning on specific visual attributes.'
+        },
+        {
+          heading: 'Video Generation with Wan2.2',
+          content: 'Stable Diffusion excels at generating individual frames, but video requires temporal coherence—each frame needs to flow smoothly into the next. That\'s where video models like Wan2.2 come in. Wan2.2 is a video generation model that can take a sequence of frames and interpolate between them, adding motion and ensuring consistency over time. My pipeline first generates keyframes using Stable Diffusion with ControlNet and LoRA conditioning, then feeds those keyframes into Wan2.2 to create smooth animation sequences. The model handles subtle movements, maintains character consistency, and adds natural motion blur. It\'s still experimental—video models are much less mature than image models—but the results are promising.'
+        },
+        {
+          heading: 'Challenges and Iteration',
+          content: 'Generative animation is hard. Temporal coherence is the biggest challenge—models want to "hallucinate" new details in every frame, causing flickering and inconsistency. I\'ve experimented with various techniques: frame interpolation, optical flow conditioning, and multi-frame batching to improve stability. Another challenge is capturing the "feel" of old animations—it\'s not just about visual style but timing, pacing, and character movement. I\'m still iterating on the workflow, testing different model combinations and conditioning strategies. The goal isn\'t to perfectly replicate old shows but to capture their essence using modern tools.'
+        },
+        {
+          heading: 'What\'s Next',
+          content: 'I\'m working on building a library of LoRAs trained on different animation eras and styles, creating a toolkit for generating low-stim content. Future experiments include incorporating audio-reactive generation (animation that responds to music or narration), exploring newer video models as they\'re released, and potentially generating entire short episodes. This is a passion project—an excuse to play with cutting-edge generative models while creating something that feels timeless and comforting.'
         }
       ]
     }

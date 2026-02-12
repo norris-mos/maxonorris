@@ -47,6 +47,7 @@ const Research = () => {
     { id: 'publication', label: 'Publications' },
     { id: 'project', label: 'Projects' },
     { id: 'policy', label: 'Policy Work' },
+    { id: 'fun', label: 'Fun' },
   ];
 
   const filteredItems = activeFilter === 'all' 
