@@ -14,6 +14,7 @@ export interface ResearchItem {
     sections: {
       heading: string;
       content: string;
+      images?: string[];
     }[];
     externalLinks?: {
       label: string;
@@ -235,6 +236,57 @@ export const researchItems: ResearchItem[] = [
   },
   {
     id: 7,
+    slug: 'reconstructing-americas-cities',
+    type: 'project',
+    title: 'Reconstructing America\'s Cities of the Past Using AI',
+    subtitle: 'Geolocating 30,000 historical Sanborn maps with agentic AI systems to unlock urban economic history',
+    venue: 'Collaboration with LSE',
+    date: '2024–Present',
+    excerpt: 'Using state-of-the-art agentic AI systems to geolocate and digitize 30,000 historical Sanborn Fire Insurance Maps, enabling unprecedented analysis of American urban development and economic history.',
+    link: '#',
+    tags: ['AI Agents', 'Historical GIS', 'Urban History'],
+    fullContent: {
+      overview: 'This project combines cutting-edge agentic AI systems with historical cartography to reconstruct America\'s cities as they existed in the 1800s and early 1900s. In collaboration with researchers at the London School of Economics, we\'re building an automated pipeline to geolocate and digitize the Sanborn Fire Insurance Map collection—over 30,000 detailed maps documenting American urban landscapes. This work unlocks new possibilities for economic historians studying urbanization, industrialization, and spatial economic development.',
+      sections: [
+        {
+          heading: 'Why Historical Maps Matter',
+          content: 'Understanding how cities looked in the past is fundamental to economic history. The spatial organization of cities—where factories were built, how residential areas developed, where infrastructure was placed—shapes economic outcomes for generations. But historical urban data is scattered and difficult to work with. Most exists only as physical maps in archives. The Sanborn Fire Insurance Maps are uniquely valuable: they were created for insurance purposes and document building-by-building details including construction materials, land use, and infrastructure. If we can digitize and geolocate these maps, we can build comprehensive datasets showing how American cities evolved over a century of rapid industrialization and growth.'
+        },
+        {
+          heading: 'The Sanborn Fire Insurance Map Collection',
+          content: 'Between 1867 and 1970, the Sanborn Map Company created extraordinarily detailed fire insurance maps for over 12,000 American cities and towns. These maps show individual buildings, streets, property lines, and even structural details like wall thickness and roof materials. They were updated regularly, creating a time-series view of urban development. For researchers, they\'re an unparalleled resource—but using them requires manually finding each map, figuring out where it corresponds to in modern geography, and digitizing the data. At 30,000+ maps, doing this by hand would take decades. That\'s where AI comes in.',
+          images: ['/assets/sanborn-map-1.jpg', '/assets/sanborn-map-2.jpg']
+        },
+        {
+          heading: 'Agentic AI for Geolocation',
+          content: 'Traditional computer vision approaches struggle with historical maps—street names have changed, buildings no longer exist, and map projections vary. Instead, we\'re using agentic AI systems that can reason through the geolocation task like a human expert would. The agent receives a historical map and uses multiple strategies: reading street names and comparing them to historical gazetteers, identifying landmarks that still exist today, analyzing spatial relationships between features, and cross-referencing with other historical sources. The system iterates, testing hypotheses about location and refining its estimates. It\'s not just pattern matching—it\'s genuine problem-solving with large language models coordinating multiple tools and information sources.'
+        },
+        {
+          heading: 'The Technical Pipeline',
+          content: 'Our pipeline has several stages. First, OCR (Optical Character Recognition) extracts text from map scans—street names, building labels, annotations. Then the agentic system takes over: it queries historical databases, searches modern mapping APIs, and uses spatial reasoning to propose candidate locations. A verification module checks these proposals by comparing expected spatial relationships against what\'s in the map. For ambiguous cases, the agent can request human input or flag the map for manual review. Once geolocated, we extract structured data: building footprints, land use categories, infrastructure like railways and streetcar lines. The output is a georeferenced GIS layer that can be overlaid on modern maps or analyzed quantitatively.'
+        },
+        {
+          heading: 'Collaboration with LSE',
+          content: 'This project is being done in partnership with economic historians at the London School of Economics who study urban development and spatial economics. They provide the research questions that drive our work: How did industrial agglomeration patterns emerge? How did transportation infrastructure shape residential segregation? What was the spatial footprint of different industries over time? Our AI pipeline turns historical maps into data that can answer these questions at scale. The collaboration is iterative—historians validate our geolocation results, we refine the system, and together we design the data extraction process to capture variables relevant to economic research.'
+        },
+        {
+          heading: 'Challenges and Solutions',
+          content: 'Geolocating historical maps is hard. Cities have changed dramatically—entire neighborhoods have been demolished, coastlines have shifted, rivers have been rerouted. Street names are inconsistent. Map quality varies wildly. Our agentic approach handles this by using multiple lines of evidence and explicitly reasoning about uncertainty. When confidence is low, the system says so rather than guessing. We\'ve also built a feedback loop: human corrections are fed back into the agent\'s knowledge base, making it progressively better at handling difficult cases. Another challenge is scale: 30,000 maps is far too many to process manually, but also too many to naively throw at an AI system without quality control. We\'re developing sampling strategies and validation protocols to ensure accuracy while maintaining throughput.'
+        },
+        {
+          heading: 'Impact on Economic History',
+          content: 'This project fundamentally changes what\'s possible in urban economic history. Researchers can now ask quantitative questions about city structure and development that previously required years of manual archive work. Want to know how proximity to railways affected residential density in 1890s Chicago? Or how industrial land use changed in Pittsburgh between 1900 and 1930? With geolocated Sanborn maps, these become tractable empirical questions. The data we\'re generating will be released publicly, creating a research commons for economic historians, urban planners, and anyone interested in how American cities came to be.'
+        },
+        {
+          heading: 'What\'s Next',
+          content: 'We\'re currently processing maps for major industrial cities first—New York, Chicago, Pittsburgh, Detroit—to build datasets for ongoing economic history projects. The long-term goal is comprehensive coverage: all 30,000 maps geolocated and digitized, creating a complete spatial-temporal database of American urban development. We\'re also exploring extensions: linking maps to census data, extracting business directories from map annotations, and using the geolocation pipeline for other historical map collections. The methodology we\'re developing here could apply to any large-scale historical cartography project that needs automated spatial referencing.',
+          images: ['/assets/sanborn-map-3.jpg']
+        }
+      ]
+    }
+  },
+  {
+    id: 8,
     slug: 'low-stim-animation',
     type: 'fun',
     title: 'Low Stim Animation with Stable Diffusion',

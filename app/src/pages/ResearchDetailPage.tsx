@@ -95,9 +95,23 @@ function ResearchDetailPage() {
                   <h2 className="font-serif text-subtitle text-charcoal mb-4">
                     {section.heading}
                   </h2>
-                  <p className="body-editorial text-body leading-relaxed text-charcoal-light whitespace-pre-line">
+                  <p className="body-editorial text-body leading-relaxed text-charcoal-light whitespace-pre-line mb-6">
                     {section.content}
                   </p>
+                  {/* Section Images */}
+                  {section.images && section.images.length > 0 && (
+                    <div className={`mt-8 grid gap-4 ${section.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+                      {section.images.map((image, imgIndex) => (
+                        <div key={imgIndex} className="overflow-hidden bg-cream-dark">
+                          <img
+                            src={image}
+                            alt={`${section.heading} - Image ${imgIndex + 1}`}
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </section>
               ))}
             </div>
