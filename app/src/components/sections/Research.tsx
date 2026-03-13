@@ -69,8 +69,14 @@ const Research = () => {
                 Research & Projects
               </span>
               <h2 className="reveal-item section-reveal font-serif heading-editorial text-title text-charcoal">
-                Selected <em className="text-terracotta">work</em>
+                Selected <em className="text-terracotta">work</em> on learning,
+                cognition, and educational AI
               </h2>
+              <p className="reveal-item section-reveal body-editorial text-body-sm text-charcoal-light max-w-2xl mt-6">
+                From student modelling and curriculum planning to privacy-first deployment in
+                schools, these projects focus on AI systems that reason about learners rather
+                than treating education as generic content generation.
+              </p>
             </div>
 
             {/* Filter Tabs */}

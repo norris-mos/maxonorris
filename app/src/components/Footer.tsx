@@ -41,7 +41,7 @@ const Footer = () => {
                 Max Norris
               </Link>
               <p className="text-body-sm text-cream/50">
-                PhD Researcher · AI Governance · Geopolitical Analysis
+                AI Researcher · Cognitive Modelling · Education
               </p>
             </div>
 
@@ -79,7 +79,7 @@ const Footer = () => {
               © {currentYear} Max Norris
             </p>
             <p className="text-caption text-cream/30">
-              Raised in Hong Kong · Based in Edinburgh
+              Modelling learning, behaviour, and cognition with AI
             </p>
           </div>
         </div>

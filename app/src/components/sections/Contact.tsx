@@ -79,8 +79,8 @@ const Contact = () => {
               Let's <em className="text-terracotta">talk</em>.
             </h2>
             <p className="reveal-item section-reveal body-editorial text-body-lg text-cream/70">
-              Whether you're interested in AI governance research, geopolitical analysis, 
-              or exploring collaboration opportunities—I'd love to hear from you.
+              If you're working on educational AI, student modelling, cognition, or
+              responsible deployment in schools, I'd be glad to hear from you.
             </p>
           </div>
 
@@ -220,9 +220,9 @@ const Contact = () => {
                   <span className="text-sm text-sage">Open to opportunities</span>
                 </div>
                 <p className="text-body-sm text-cream/50 leading-relaxed">
-                  Currently seeking roles in AI governance, geopolitical analysis, 
-                  and policy research—particularly at the intersection of technology 
-                  and international affairs.
+                  Interested in roles and collaborations in educational AI, cognitive
+                  modelling, learning sciences, and applied research on human behaviour
+                  in real-world settings.
                 </p>
               </div>
             </div>

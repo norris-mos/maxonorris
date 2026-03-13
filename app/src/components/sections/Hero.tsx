@@ -42,24 +42,25 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Small intro text */}
           <p className="reveal-item font-serif text-body text-warm-gray mb-8 italic">
-            AI Researcher · Geopolitical Analyst · Founder
+            AI Researcher · Cognitive Modelling · Education
           </p>
 
           {/* Main Headline */}
           <h1 className="font-serif heading-editorial text-display-sm md:text-display text-charcoal mb-8">
             <span className="reveal-item block opacity-0 translate-y-6 transition-all duration-700 ease-expo-out delay-100">
-              I study how AI systems
+              I build AI systems
             </span>
             <span className="reveal-item block opacity-0 translate-y-6 transition-all duration-700 ease-expo-out delay-200">
-              shape <em className="text-terracotta">global power</em>.
+              for <em className="text-terracotta">human learning</em>.
             </span>
           </h1>
 
           {/* Description */}
           <p className="reveal-item opacity-0 translate-y-6 transition-all duration-700 ease-expo-out delay-300 body-editorial text-body-lg max-w-2xl mx-auto mb-12">
-            I'm a PhD researcher at the University of Edinburgh working on interpretable AI 
-            and AI governance. Raised in Hong Kong with deep regional expertise across 
-            Greater China and ASEAN, I bridge technical AI research with geopolitical analysis.
+            I'm a PhD researcher at the University of Edinburgh developing interpretable AI,
+            student models, and intelligent tutoring systems. My work focuses on how AI can
+            represent human behaviour and cognition in educational settings, then turn those
+            models into tools that teachers and schools can use responsibly.
           </p>
 
           {/* CTA Buttons */}

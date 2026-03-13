@@ -33,25 +33,25 @@ const About = () => {
       period: '2024 — Present',
       role: 'Founder & Engineer',
       institution: 'Broonie (AI for Schools)',
-      description: 'Built privacy-first GenAI platform with on-premise GPU infrastructure. Secured £40k non-dilutive funding, working directly with schools on responsible AI adoption.',
+      description: 'Building privacy-first AI tools for schools with on-premise GPU infrastructure, curriculum-aware workflows, and direct collaboration with educators on safe deployment.',
     },
     {
       period: '2023 — Present',
       role: 'PhD Researcher',
       institution: 'University of Edinburgh',
-      description: 'Research on interpretable AI and personalised tutoring systems. UKRI-funded studentship working with Professor Kobi Gal on computational models of human learning.',
+      description: 'Researching interpretable AI and personalised tutoring systems. UKRI-funded studentship supervised by Dr Sahan Bulathwela and Professor Kobi Gal on computational models of human learning and student behaviour.',
     },
     {
       period: '2025 — 2026',
       role: 'Lecturer / TA',
       institution: 'UCL',
-      description: 'Delivering lectures on AI for knowledge management and education, supervising student projects on AI-powered educational applications.',
+      description: 'Delivering lectures on AI for knowledge management and education, supervising projects on classroom-facing AI systems and educational applications.',
     },
     {
       period: '2022 — 2023',
       role: 'Applied Data Scientist',
       institution: 'Kidsloop',
-      description: 'Developed speech recognition and knowledge tracing models deployed globally to education partners.',
+      description: 'Developed speech recognition and knowledge tracing models deployed globally to education partners for personalised support and learner progress modelling.',
     },
     {
       period: '2018 — 2019',
@@ -78,35 +78,35 @@ const About = () => {
               </span>
               
               <h2 className="reveal-item section-reveal font-serif heading-editorial text-title text-charcoal mb-8">
-                Bridging <em className="text-terracotta">AI research</em> with 
-                geopolitical reality.
+                Building <em className="text-terracotta">AI models</em> of learning
+                and cognition.
               </h2>
 
               <div className="reveal-item section-reveal space-y-6 body-editorial text-body">
                 <p>
-                  I grew up in Hong Kong, surrounded by the energy of a city that sits 
-                  at the intersection of East and West. That upbringing shaped how I see 
-                  the world—and how I approach my work in AI.
+                  My work sits at the intersection of AI, cognitive science, and education.
+                  I'm interested in how we can model what learners know, how their behaviour
+                  changes over time, and which interventions actually help them make progress.
                 </p>
                 <p>
-                  Today, I'm a PhD researcher at the University of Edinburgh's Centre for 
-                  Doctoral Training in NLP, where I work on interpretable AI and intelligent 
-                  tutoring systems. My research focuses on making AI systems more transparent, 
-                  accountable, and safe to deploy—particularly in sensitive contexts like 
-                  education and personalised decision-making.
+                  At the University of Edinburgh's Centre for Doctoral Training in NLP, I
+                  research interpretable AI and intelligent tutoring systems under the
+                  supervision of Dr Sahan Bulathwela and Professor Kobi Gal. I build models
+                  that infer latent knowledge, predict learning trajectories, and make
+                  educational decision-making more transparent to teachers, researchers, and
+                  institutions.
                 </p>
                 <p>
-                  My regional expertise runs deep. I spent two years at National Taiwan 
-                  University, hold a degree in Economics and Chinese from SOAS, and speak 
-                  Mandarin at professional fluency. I've advised the Dutch Ministry of 
-                  Economic Affairs on strategic AI funding priorities and have built 
-                  relationships across government, industry, and academia in both Europe 
-                  and Asia.
+                  Educational settings are where these questions matter most. Through work at
+                  Broonie, Kidsloop, and UCL, I've built and taught systems for knowledge
+                  tracing, speech recognition, curriculum-aligned generation, and privacy-first
+                  AI deployment in schools.
                 </p>
                 <p>
-                  As founder of Broonie, I've experienced firsthand the challenges of 
-                  deploying AI responsibly—from navigating GDPR compliance to working 
-                  directly with schools and local authorities on adoption strategies.
+                  That combination of research and deployment shapes how I work: rigorous
+                  modelling, careful evaluation, and close collaboration with educators so
+                  that AI reflects the realities of human learning rather than flattening
+                  them into abstract benchmarks.
                 </p>
               </div>
 
@@ -124,8 +124,8 @@ const About = () => {
 
               {/* Quote */}
               <blockquote className="reveal-item section-reveal pull-quote mt-12">
-                "The most important questions in AI aren't technical—they're
-                about who holds power and how decisions get made."
+                "Good educational AI starts with a serious model of the learner,
+                not just a better model of the task."
               </blockquote>
             </div>
 
