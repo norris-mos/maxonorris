@@ -124,8 +124,9 @@ const About = () => {
 
               {/* Quote */}
               <blockquote className="reveal-item section-reveal pull-quote mt-12">
-                "Good educational AI starts with a serious model of the learner,
-                not just a better model of the task."
+                "The key to transformation is not to standardize education, but to
+                personalize it, to build achievement on discovering the individual
+                talents of each child." — Sir Ken Robinson
               </blockquote>
             </div>
 
