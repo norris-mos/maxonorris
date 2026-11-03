@@ -30,7 +30,14 @@ const About = () => {
 
   const experiences = [
     {
-      period: '2024 — Present',
+      period: '2026 — Present',
+      role: 'Machine Learning Researcher',
+      institution: 'Perpetual Automata',
+      url: 'https://perpetualautomata.com',
+      description: 'Machine learning research and product at the boundary between AI and operating systems — building detection, tracing and explanation for autonomous software.',
+    },
+    {
+      period: '2024 — 2025',
       role: 'Founder & Engineer',
       institution: 'Broonie (AI for Schools)',
       description: 'Building privacy-first AI tools for schools with on-premise GPU infrastructure, curriculum-aware workflows, and direct collaboration with educators on safe deployment.',
@@ -160,7 +167,18 @@ const About = () => {
                       {exp.role}
                     </h4>
                     <div className="text-body-sm text-warm-gray mb-2">
-                      {exp.institution}
+                      {exp.url ? (
+                        <a
+                          href={exp.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline decoration-warm-gray/40 underline-offset-2 hover:text-terracotta transition-colors duration-300"
+                        >
+                          {exp.institution}
+                        </a>
+                      ) : (
+                        exp.institution
+                      )}
                     </div>
                     <p className="text-body-sm text-charcoal-light leading-relaxed">
                       {exp.description}

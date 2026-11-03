@@ -25,6 +25,72 @@ export interface ResearchItem {
 
 export const researchItems: ResearchItem[] = [
   {
+    id: 9,
+    slug: 'llms-represent-latent-student-mastery',
+    type: 'publication',
+    title: 'LLMs Trained on Learner Responses Represent Latent Student Mastery',
+    subtitle: 'Probing whether language models fine-tuned for knowledge tracing develop an internal student model',
+    venue: 'Under Review',
+    date: '2026',
+    excerpt: 'Fine-tuning LLMs to predict a student\'s next answer makes their mastery linearly decodable from the residual stream. The representation is functional, tracks learning and forgetting, and predicts later performance on real learner data.',
+    link: '#',
+    tags: ['Interpretability', 'Knowledge Tracing', 'LLMs'],
+    fullContent: {
+      overview: 'To what extent does a language model trained to predict a student\'s responses encode that student\'s mastery? A good tutor maintains a running estimate of what a learner knows. If LLMs are to act as tutors, they need something like an internal student model. This work tests whether one emerges when an LLM is fine-tuned on knowledge tracing alone.',
+      sections: [
+        {
+          heading: 'The Problem',
+          content: 'LLMs are increasingly deployed in education, and some are explicitly marketed as personal tutors. Yet we do not know whether they represent anything like a student model internally. Studying this with real learners is hard because a real student\'s mastery is itself a hidden variable — there is no ground truth to compare against.'
+        },
+        {
+          heading: 'Our Approach',
+          content: 'We simulate students with a four-parameter Item Response Theory (IRT) model, so per-concept mastery is known by construction. Response histories are serialised into text transcripts, and small open-source LLMs (Llama-3.2-1B, Qwen3-1.7B and Qwen3-4B) are fine-tuned to predict whether the student will answer correctly. Linear probes test whether mastery is encoded in the residual stream, and subspace ablations test whether the model actually relies on that encoding. We then move towards realism: students whose mastery changes through learning and forgetting, and finally real response histories from Junyi, ASSISTments and FoundationalASSIST.'
+        },
+        {
+          heading: 'Results',
+          content: 'Fine-tuning consistently strengthens student-mastery information in the residual stream: concept-specific mastery becomes far more linearly decodable than in the base model. The representation is functional rather than merely correlational — intervening on it shifts the model\'s prediction of student correctness in the expected direction. The decoded estimate follows mastery as it changes through learning and forgetting, and on real learner data, where mastery is unobserved, the hidden state predicts students\' later performance on the same skill.'
+        },
+        {
+          heading: 'Implications',
+          content: 'Together these results offer initial evidence that a language model trained only to predict student responses develops an internal "student model" — a world model of the learner. This opens the door to reading, auditing and steering what an AI tutor believes about the students it teaches.'
+        }
+      ]
+    }
+  },
+  {
+    id: 10,
+    slug: 'reward-hacking-rl-exercise-recommendation',
+    type: 'publication',
+    title: 'Towards Detection and Mitigation of Reward Hacking in RL-Based Exercise Recommendation',
+    subtitle: 'Why RL question-sequencing policies collapse, and how pedagogical constraints fix it',
+    venue: 'Under Review',
+    date: '2026',
+    excerpt: 'RL policies trained against knowledge tracing simulators collapse onto a handful of questions recommended to every student, even as reward rises. A student-specific action mask grounded in learning science eliminates the collapse.',
+    link: '#',
+    tags: ['Reinforcement Learning', 'AI Safety', 'Education'],
+    fullContent: {
+      overview: 'Learning platforms increasingly use AI to decide what millions of students practise next. Researchers frame this as a reinforcement learning problem, training policies offline against Knowledge Tracing (KT) models that stand in for real students. This setup rests on an unchecked assumption: that high simulated reward corresponds to pedagogically sound recommendations. We test that assumption.',
+      sections: [
+        {
+          heading: 'The Problem',
+          content: 'To avoid exposing real students to untested policies, RL-based exercise recommenders are trained against KT models fitted to logged student interactions. These simulators encode the learner\'s state, simulate their responses and supply the reward. Most work then judges policies by the reward they obtain. Very little looks at the actual sequence of questions a policy recommends.'
+        },
+        {
+          heading: 'Policy Collapse',
+          content: 'We train three RL algorithms across three open educational datasets (assist2017, XES3G5M and Eedi). Although estimated mastery gains improve in most settings, every trained policy collapses — converging on a handful of questions that it recommends repeatedly to every student, regardless of their knowledge state. In most settings the simulator\'s reward rises as the policy collapses. Deployed, such a policy would drill every student on the same few questions while its metrics report success.'
+        },
+        {
+          heading: 'Pedagogical Masking',
+          content: 'We show the flaw can be addressed at the level of problem formulation rather than the optimisation algorithm. Policies choose from a small, student-specific candidate mask built on learning-science principles: it excludes repeated questions, prioritises difficulty within the Zone of Proximal Development, and fills remaining capacity from mastered, related material, following mastery learning.'
+        },
+        {
+          heading: 'Results',
+          content: 'Masking eliminates collapse. Masked policies draw on hundreds of distinct questions and produce trajectories that are diverse across students and pedagogically coherent by construction, while matching or exceeding unmasked reward on two of three datasets.'
+        }
+      ]
+    }
+  },
+  {
     id: 1,
     slug: 'next-token-knowledge-tracing',
     type: 'publication',
@@ -99,7 +165,7 @@ export const researchItems: ResearchItem[] = [
     title: 'Broonie — Privacy-First GenAI for Schools',
     subtitle: 'Building a GDPR-compliant AI platform with on-premise deployment for UK schools',
     venue: 'Production System',
-    date: '2024–2026',
+    date: '2024–2025',
     excerpt: 'Built GDPR-compliant AI platform with on-premise GPU cluster. Led LoRA fine-tuning pipeline achieving 40% lower perplexity on KS3 maths. Deployed in 3 pilot schools.',
     link: '#',
     tags: ['EdTech', 'Privacy', 'Deployment'],
