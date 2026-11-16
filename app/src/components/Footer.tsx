@@ -1,5 +1,5 @@
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { Twitter, Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,9 +22,8 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/norris-mos', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/max-norris-226ba188', label: 'LinkedIn' },
   ];
 
   return (
@@ -64,6 +63,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-9 h-9 rounded bg-cream/5 hover:bg-terracotta flex items-center justify-center transition-all duration-300"
                 >

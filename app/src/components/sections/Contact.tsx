@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Mail, MapPin, Linkedin, Twitter, Github, Send, ArrowUpRight } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Github, Send, ArrowUpRight } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Contact = () => {
@@ -57,9 +57,8 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Twitter, label: 'Twitter', href: '#' },
-    { icon: Github, label: 'GitHub', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
+    { icon: Github, label: 'GitHub', href: 'https://github.com/norris-mos' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/max-norris-226ba188' },
   ];
 
   return (
@@ -204,6 +203,8 @@ const Contact = () => {
                     <a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={social.label}
                       className="w-10 h-10 rounded bg-cream/5 hover:bg-terracotta flex items-center justify-center transition-all duration-300 group"
                     >
